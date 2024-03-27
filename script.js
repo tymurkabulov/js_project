@@ -13,7 +13,7 @@
                 let userName = document.createElement('p');
                 let userButton = document.createElement('button');
 
-                userName.textContent = 'ID ' + user.id + '. ' + user.name;
+                userName.innerHTML =  `<strong>User ID${user.id}. ${user.name}</strong>`;
                 userButton.innerHTML = `<a href="user-details.html?id=${user.id}" style="text-decoration:none; color: white">More info</a>`;
 
                 userCard.style.backgroundColor = '#f0f0f0';
@@ -26,9 +26,6 @@
                 userButton.style.fontSize = '20px';
                 userButton.style.padding = '10px';
                 userButton.style.borderRadius = '10%';
-
-
-
 
                 userCard.appendChild(userName);
                 userCard.appendChild(userButton);

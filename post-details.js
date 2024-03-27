@@ -7,6 +7,8 @@
             let postCard = document.createElement('div');
             let postInfo = document.createElement('p');
 
+            postInfo.style.border = '2px solid black';
+
             postInfo.style.backgroundColor = '#f0f0f0';
             postInfo.style.padding = '10px';
             postInfo.style.marginBottom = '20px';
@@ -33,6 +35,8 @@
                         commentsInfo.style.padding = '10px';
                         commentsInfo.style.marginBottom = '20px';
                         commentsInfo.style.fontSize = '20px';
+                        commentsInfo.style.border = '2px solid black';
+
 
                         commentsInfo.innerHTML = `
                             

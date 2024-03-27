@@ -30,15 +30,15 @@
 
 
             userInfo.innerHTML = `
-                Name: ${user.name}<br>
-                Username: ${user.username}<br>
-                Email: ${user.email}<br>
-                Phone: ${user.phone}<br>
-                Website: ${user.website}<br>
-                Company: ${user.company.name}<br>
-                Company's bs: ${user.company.bs}<br>
-                Catch phrase: ${user.company.catchPhrase}<br>
-                Address: ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}<br>       
+                <strong>Name:</strong> ${user.name}<br>
+                <strong>Username:</strong> ${user.username}<br>
+                <strong>Email:</strong> ${user.email}<br>
+                <strong>Phone:</strong> ${user.phone}<br>
+                <strong>Website:</strong> ${user.website}<br>
+                <strong>Company:</strong> ${user.company.name}<br>
+                <strong>Company's bs:</strong> ${user.company.bs}<br>
+                <strong>Catch phrase:</strong> ${user.company.catchPhrase}<br>
+                <strong>Address:</strong> ${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}<br>       
             `;
 
             userInfo.appendChild(userPostsButton);
@@ -60,17 +60,20 @@
                         postCard.style.marginTop = '10px';
                         postCard.style.padding = '10px';
                         postCard.style.display = 'flex';
-                        postCard.style.flex = 'wrap';
+                        postCard.style.flexWrap = 'wrap';
                         postCard.style.gap = '10px';
-                        postCard.style.justifyContent = 'space-between';
+                        postCard.style.justifyContent = 'space-around';
+
 
                      posts.forEach(post => {
                          let postBlock = document.createElement('div');
                          let postTitle = document.createElement('p');
                          let postsButton = document.createElement('button');
 
-                         postBlock.style.width = '20%';
-                         postBlock.style.margin = '0 10px 20px';
+                         postBlock.style.width = '16%';
+                         postBlock.style.border = '2px solid black';
+                         postBlock.style.padding = '10px';
+                         postBlock.style.margin = '10px';
                          postBlock.style.display = 'flex';
                          postBlock.style.flexDirection = 'column';
 
