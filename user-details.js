@@ -1,9 +1,18 @@
 
     let urlUser = new URLSearchParams(window.location.search);
     let userId = urlUser.get('id');
+    let error = document.createElement('h1');
+
+    error.textContent = 'Check if user`s ID is correct';
 
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok){
+                document.body.appendChild(error);
+                throw new Error('Network was not ok')
+            }
+        return response.json();
+    })
         .then(user => {
             let userInfo = document.createElement('div');
             let userPostsButton = document.createElement('button');
@@ -48,6 +57,7 @@
                 fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
                     .then(response =>{
                         if (!response.ok){
+                            document.body.appendChild(error);
                             throw new Error('Network was not ok');
                         }
                         return response.json();

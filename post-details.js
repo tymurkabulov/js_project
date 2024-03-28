@@ -1,8 +1,17 @@
     let urlPost = new URLSearchParams(window.location.search);
     let postId = urlPost.get('id');
+    let error = document.createElement('h1');
 
+    error.textContent = 'Check if user`s ID is correct';
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok){
+                document.body.appendChild(error);
+                throw new Error('Network was not ok')
+
+            }
+            return response.json();
+        })
         .then(post => {
             let postCard = document.createElement('div');
             let postInfo = document.createElement('p');
@@ -24,7 +33,13 @@
 
 
             fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok){
+                        document.body.appendChild(error);
+                        throw new Error('Network was not ok');
+                    }
+                    return response.json();
+                })
                 .then(comments => {
 
                     comments.forEach(comment => {

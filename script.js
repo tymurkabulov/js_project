@@ -1,7 +1,10 @@
+    let error = document.createElement('h1');
 
+    error.textContent = 'Check if user`s ID is correct';
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => {
         if (!response.ok) {
+            document.body.appendChild(error);
             throw new Error('Network was not ok')
         }
         return response.json();
